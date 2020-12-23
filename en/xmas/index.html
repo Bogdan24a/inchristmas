@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <title>InChristmas</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+
+    <div id="message">Merry Christmas!
+      <p style="font-size: 16px;">Orchestra is loading...</p>
+    </div>
+
+    <!--MSG Center-->
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+        <script>
+        //When the page has loaded.
+        $( document ).ready(function(){
+            $('#message').fadeIn('slow', function(){
+               $('#message').delay(10000).fadeOut(); 
+            });
+        });
+        </script>
+
+
+    <canvas id="c"></canvas>
+
+    <script id="shader-fs" type="x-shader/x-fragment">
+      #ifdef GL_ES
+      precision highp float;
+      #endif
+      varying vec4 vColor;
+
+      void main(void) {
+        gl_FragColor = vColor;
+      }
+    </script>
+
+    <script id="shader-vs" type="x-shader/x-vertex">
+      attribute vec3 vertexPosition;
+      attribute vec4 a_color;
+
+      uniform mat4 modelViewMatrix;
+      uniform mat4 perspectiveMatrix;
+
+      varying   vec4 vColor;
+
+      void main(void) {
+      	gl_Position = perspectiveMatrix * modelViewMatrix * vec4(vertexPosition, 2.0);
+      	vColor = a_color;
+      }
+    </script>
+    <script src="/app.js"></script>
+
+    
+
+    <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-app.js"></script>
+
+    <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+    <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-analytics.js"></script>
+
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-firestore.js"></script>
+  </body>
+</html>

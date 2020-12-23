@@ -1,0 +1,78 @@
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+
+body {
+  overflow: hidden;
+  margin: 0;
+  background: #000;
+}
+
+#message {
+  display: fixed;
+  text-align: center;
+  color: rgb(255, 255, 255);
+  z-index: 9999;
+  background: rgba(255, 0, 0, 0.507);
+  border-radius: 50px;
+  font-size: 30px;
+  font-family: "Pacifico", cursive;
+  bottom: -50%;
+  height: 60px;
+  left: 0;
+  margin: auto;
+  padding: 10px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 300px;
+}
+
+#happy-xmas {
+  height: 65%;
+  display: fixed;
+  position: fixed;
+  margin: auto;
+  bottom: 30%;
+  left: -9999px;
+  right: -9999px;
+}
+
+a {
+  text-decoration: none;
+  color: aliceblue;
+}
+
+#info {
+  display: fixed;
+  text-align: center;
+  background: rgba(129, 129, 129, 0.507);
+  color: rgb(0, 0, 0);
+  border-radius: 50px;
+  font-size: 30px;
+  font-family: "Pacifico", cursive;
+  bottom: -80%;
+  height: 60px;
+  left: 0;
+  margin: auto;
+  padding: 0px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 300px;
+}
+
+#lang {
+  font-family: Verdana, sans-serif;
+  position: fixed;
+  text-align: center;
+  color: #fff;
+  left: 0;
+  right: 0;
+  margin: auto;
+  padding: 3px;
+  top: 3%;
+  border-radius: 50px;
+  background-color: rgb(37, 37, 37);
+  border: groove;
+  width: 300px;
+  z-index: 1;
+}
