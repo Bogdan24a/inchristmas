@@ -419,11 +419,11 @@
                 let rgb;
 
                 if (i / (settings.numLines * 2) < 1 / 3) {
-                    rgb = { r: 0, g: 0, b: 255 }; //bass
+                    rgb = { r: 0, g: 225, b: 0 }; //bass
                 } else if (i / (settings.numLines * 2) > 3 / 5) {
                     rgb = { r: 255, g: 255, b: 255 }; //treb
                 } else {
-                    rgb = { r: 255, g: 255, b: 0 }; //mid
+                    rgb = { r: 0, g: 255, b: 0 }; //mid
                 }
 
                 var col = [
