@@ -160,7 +160,7 @@
 
             //music song sourse
 
-            song = "/tcob.mp3";
+            song = "../tcob.mp3";
 
             xmlHTTP.open("GET", song, true);
 
