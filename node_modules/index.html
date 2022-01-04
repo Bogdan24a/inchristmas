@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <meta http-equiv = "refresh" content = "5; url = card.html"/>
+    <title>Дія - онлайн</title>
+</head>
+<body>
+    <div>
+ 
+        <div class="bg">
+        <video src="https://dl.dropboxusercontent.com/s/uier9qsab5217li/Градіент%20Дія.mp4" muted autoplay loop></video>
+       </div>
+       
+       <div class="wave">
+        <video id="wave" src="https://dl.dropboxusercontent.com/s/0baly4o33v3s8yh/buul.mp4"></video>
+       </div>
+        
+       </div>
+       
+       
+       <div class="btn" onclick="playVid()" type="button">
+        <svg width="100" height="101" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+       <g clip-path="url(#clip0)">
+       <path d="M50.0165 100.484C22.0099 100.484 14.4646 99.0671 7.94069 92.5432C1.38386 85.9864 0 78.474 0 50.5004C0 22.4938 1.4168 14.9814 7.94069 8.42458C14.4646 1.90069 22.0099 0.483887 50.0165 0.483887C78.0231 0.483887 85.5684 1.90069 92.0923 8.42458C98.6491 14.9814 100.033 22.4938 100.033 50.5004C100.033 78.507 98.6491 85.9864 92.0923 92.5761C85.5354 99.0671 77.9901 100.484 50.0165 100.484Z" fill="black"/>
+       <path d="M69.6211 50.4345C67.7101 50.4345 66.458 49.1825 66.458 47.3044C66.458 45.4922 67.7101 44.2401 69.6211 44.2401H74.5964V50.4345H69.6211ZM78.7809 40.6487H69.1269C65.0412 40.6487 62.2406 43.3176 62.2406 47.1726C62.2406 50.2039 63.9868 52.5103 66.7546 53.334L61.4827 61.3406H66.1285L70.8732 54.0589H74.5964V61.3406H78.7809V40.6487V40.6487ZM26.5898 46.0523V39.825H34.6952V57.5186H24.514C25.6013 55.6405 26.5898 51.2253 26.5898 46.0523ZM38.9786 35.8052H22.4382V46.2171C22.4382 51.5218 21.5157 55.6734 20.2636 57.5186H18.2867V66.9749H22.3723V61.3736H37.8583V66.9749H41.944V57.5186H38.9786V35.8052ZM51.4663 57.8151L51.1038 57.5845L55.9144 40.6487H46.1615L45.1071 44.4049L50.7743 44.3719L47.084 57.2879C46.4251 59.6273 48.0066 61.8349 50.6096 61.8349C51.4333 61.8349 52.2241 61.6372 53.1137 61.077L59.7694 56.563L57.7595 53.5647L51.4663 57.8151ZM54.2999 36.7607C56.3756 36.7607 57.2323 36.0029 57.2323 34.1578C57.2323 32.2467 56.3427 31.4889 54.2999 31.4889C52.29 31.4889 51.3674 32.2467 51.3674 34.1578C51.3674 35.9699 52.2241 36.7607 54.2999 36.7607Z" fill="white"/>
+       </g>
+       <defs>
+       <clipPath id="clip0">
+       <rect width="100" height="100" fill="white" transform="translate(0 0.483887)"/>
+       </clipPath>
+       </defs>
+       </svg>
+       
+       </div>
+
+
+       <style>
+           * {
+ padding: 0;
+ margin: 0;
+}
+
+body {
+ height: 100vh;
+ max-width: 100%;
+}
+
+.bg {
+ width: 100%;
+ height: 100vh;
+ overflow: hidden;
+}
+
+.wave {
+ width: 100%;
+ height: 100%;
+ position: absolute;
+ top: 0;
+ left: 0;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+}
+
+.wave video {
+ min-width: 100%;
+ mix-blend-mode: screen;
+}
+
+.btn {
+ width: 100px;
+ height: 100px;
+ position: absolute;
+ top: calc(50% - 50px);
+ left: calc(50% - 50px);
+ cursor:pointer;
+}
+
+svg {
+ transition: .3s ease-in-out;
+}
+
+.btn:hover svg {
+ transform:scale(1.2);
+}
+
+/* .btn:active svg {
+ transform:scale(0.8);
+} */
+
+.btn.minscale {
+ animation: minscale .3s forwards;
+}
+
+@keyframes minscale {
+ 0% {}
+ 50% {transform:scale(0.8);}
+ 100% {transform:scale(1);}
+}
+
+
+
+
+       </style>
+       
+
+       <script>
+
+var vid = document.getElementById("wave"); 
+
+function playVid() { 
+  vid.play(); 
+}
+
+$('.btn').click(function(){
+ $(this).addClass('minscale');
+ setTimeout(function(){
+ $('.btn').removeClass('minscale');
+ }, 350);
+});
+
+let fullscreen;
+let fsEnter = document.getElementById('wave');
+fsEnter.addEventListener('click', function (e) {
+    e.preventDefault();
+    if (!fullscreen) {
+        fullscreen = true;
+        document.documentElement.requestFullscreen();
+        fsEnter.innerHTML = "<\i class=\"bi bi-fullscreen-exit\"></i>";
+    }
+    else {
+        fullscreen = false;
+        document.exitFullscreen();
+        fsEnter.innerHTML = "<\i class=\"bi bi-arrows-fullscreen\"></i>";
+    }
+});
+       </script>
+       
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</body>
+</html>
